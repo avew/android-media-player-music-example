@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,16 +31,16 @@ public class MainActivity extends AppCompatActivity {
     SeekBar mSeekBar;
 
     @BindView(R.id.btn_forward)
-    Button mBtnForward;
+    ImageView mBtnForward;
 
     @BindView(R.id.btn_play)
-    Button mBtnPlay;
+    ImageView mBtnPlay;
 
     @BindView(R.id.btn_pause)
-    Button mBtnPause;
+    ImageView mBtnPause;
 
     @BindView(R.id.btn_backward)
-    Button mBtnBackward;
+    ImageView mBtnBackward;
 
     @BindView(R.id.text_view_playing_time)
     TextView mTvPlayingTime;
@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer = MediaPlayer.create(this, R.raw.song);
         mSeekBar.setClickable(false);
         mBtnPause.setEnabled(false);
+        mBtnPause.setBackgroundResource(android.R.color.darker_gray);
         mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mediaPlayer) {
@@ -120,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
         myHandler.postDelayed(UpdateSongTime, 100);
 
         mBtnPause.setEnabled(true);
+        mBtnPause.setBackgroundResource(android.R.color.transparent);
         mBtnPlay.setEnabled(false);
     }
 
@@ -128,7 +130,14 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "Pausing", Toast.LENGTH_SHORT).show();
         mediaPlayer.pause();
         mBtnPlay.setEnabled(true);
+        mBtnPause.setBackgroundResource(android.R.color.darker_gray);
         mBtnPause.setEnabled(false);
+    }
+
+    @Override
+    protected void onDestroy() {
+        mediaPlayer.stop();
+        super.onDestroy();
     }
 
     @OnClick(R.id.btn_forward)

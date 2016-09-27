@@ -40,33 +40,45 @@
         android:orientation="horizontal"
         android:weightSum="4">
 
-        <Button
+        <ImageView
             android:id="@+id/btn_backward"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/ic_action_playback_rew"
             android:text="@string/backward" />
 
 
-        <Button
+        <ImageView
             android:id="@+id/btn_pause"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/ic_action_playback_pause"
             android:text="@string/pause" />
 
-        <Button
+        <ImageView
             android:id="@+id/btn_play"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/ic_action_playback_play"
             android:text="@string/play" />
 
-        <Button
+        <ImageView
             android:id="@+id/btn_forward"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/ic_action_playback_forw"
             android:text="@string/forward" />
 
     </LinearLayout>
